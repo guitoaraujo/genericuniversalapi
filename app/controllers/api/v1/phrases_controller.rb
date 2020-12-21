@@ -4,7 +4,7 @@ module Api
   module V1
     class PhrasesController < Api::V1::ApplicationController
       def index
-        render json: { phrases: Phrase.all }
+        render json: { phrases: @user.phrases.approved }
       end
     end
   end
