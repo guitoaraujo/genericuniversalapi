@@ -9,8 +9,8 @@ module Api
 
       def authorize_user!
         @user = User.find_by(email: params[:email])
-        render json: { response: :not_found } if @user.blank? || !@user.valid_password?(params[:password])
-      end  
+        render json: { response: :unauthorized } if @user.blank? || !@user.valid_password?(params[:password])
+      end
     end
   end
 end
